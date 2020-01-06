@@ -1,3 +1,5 @@
+# Historique
+
 ## Hitorique du langage SQL
 https://fr.wikipedia.org/wiki/Structured_Query_Language
 
@@ -40,6 +42,3 @@ https://www.ibm.com/support/knowledgecenter/en/SSGMCP_5.4.0/product-overview/aci
 ## Le théorème CAP
 Attention à la désinformation / sur-simplification !
 https://dzone.com/articles/understanding-the-cap-theorem
-
-
-
