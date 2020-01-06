@@ -17,7 +17,7 @@ production, de nombreux paramétrages supplémentaires sont conseillés (à comm
 Pour utiliser un autre système d'exploitation, le plus simple est de le virtualiser au
 travers d'une application comme VirtualBox.
 
-1) Téléchargement de l'installateur : https://www.virtualbox.org/wiki/Downloads\
+1) Téléchargement de l'installateur : https://www.virtualbox.org/wiki/Downloads  
 (Sélectionnez Windows hosts)
 2) Exécutez l'installateur
 3) Démarrez VirtualBox
@@ -28,7 +28,7 @@ Traditionnellement, il faut créer une nouvelle machine virtuelle sous VirtualBo
 charger une image du CD d'installation de Debian, exécuter tout le process d'installation... etc. 
 Pour gagner du temps nous allons utiliser une machine virtuelle pré-configurée pour le cours :
 
-1) Téléchargez la machine virtuelle à l'adresse : https://github.com/JeremyPasco/Cefim_SQL/blob/master/Cefim_SQL_init.ova\
+1) Téléchargez la machine virtuelle à l'adresse : https://github.com/JeremyPasco/Cefim_SQL/blob/master/Cefim_SQL_init.ova  
 Il s'agit d'un serveur Debian 10 avec un minimum d'outils et de configuration (clavier AZERTY, serveur ssh,
 configuration réseau, grub...). L'interface graphique a été désactivée comme pour un serveur classique.
 2) Dans VirtualBox faites Fichier > Importer un appareil virtuel
@@ -81,7 +81,7 @@ Pour installer des packages sous Debian on utilise l'utilitaire apt (diminutif d
 L'installation de package nécessite des droit admin, que l'on obtient en commençant nos commandes par `sudo` 
 (diminutif de "superuser do"). Le user cefim est dans le groupe sudo, ce qui l'autorise à utiliser `sudo`.
 
-1) Avant toute installation on rafraichit la liste des paquets disponibles : `sudo apt update`\
+1) Avant toute installation on rafraichit la liste des paquets disponibles : `sudo apt update`  
 Le premier usage de `sudo` nécessite de retaper le mot de passe du user cefim
 
 2) Installez le paquet gnupg (nécessaire pour l'installation de MySQL) : `sudo apt install gnupg`
@@ -89,7 +89,7 @@ Le premier usage de `sudo` nécessite de retaper le mot de passe du user cefim
 3) Rendez vous sur la page de téléchargement de MySQL : https://dev.mysql.com/downloads/repo/apt/
 4) Cliquez sur le bouton [Download]
 5) Sur la page suivante, faites un clic droit sur le lien [No thanks, just start my download] > Copier l'adresse du lien
-6) Téléchargez le fichier depuis le serveur Debian à l'aide de la commande `wget`\
+6) Téléchargez le fichier depuis le serveur Debian à l'aide de la commande `wget`  
 Exemple avec le lien disponible de 10/12/2019 : `wget https://dev.mysql.com/get/mysql-apt-config_0.8.14-1_all.deb`
 7) Installez le fichier à l'aide de la commande `sudo dpkg -i mysql-apt-config*`
 8) Lorsque le menu apparait, sélectionnez [OK] en laissant les options par défaut.
@@ -97,11 +97,11 @@ Cette étape a eu pour effet d'ajouter le repo de MySQL (serveur où figurent le
 9) Rafraîchir à nouveau la liste des paquets disponibles (pour voir ceux de ce nouveau repo) : `sudo apt update`
 10) Et installer MySQL : `sudo apt install mysql-server`
 (confirmez en appuyant sur Enter si besoin)
-11) Lorsque le mot de passe du compte roo vous est demandé, renseignez : cefim (et confirmez sur l'écran suivant)\
+11) Lorsque le mot de passe du compte roo vous est demandé, renseignez : cefim (et confirmez sur l'écran suivant)  
 (choisissez toujours un mot de passe fort pour un serveur de production)
 12) Confirmez l'usage de cryptage fort à l'écran suivant
 
-13) Pour sécuriser l'installation exécutez la commande `sudo mysql_secure_installation`\
+13) Pour sécuriser l'installation exécutez la commande `sudo mysql_secure_installation`  
 Voici les réponses à fournir aux différentes questions :
 - mot de passe root : renseignez 'cefim'
 - VALIDATE PASSWORD COMPONENT : mettez N (car on veut exceptionnellement autoriser les mots de passe faible lors de nos exercice)
@@ -113,27 +113,27 @@ Voici les réponses à fournir aux différentes questions :
 
 
 > Note : pour installer MariaDB (Utilisez MySQL pour ce cours !) voici les étapes à suivre (remplacer les étapes précédentes 2 à 12) :
-> 2) On installe MariaDB : `sudo apt install mariadb-server`\
-> Cette commande installe la dernière version stable de MariaDB.\
+> 2) On installe MariaDB : `sudo apt install mariadb-server`  
+> Cette commande installe la dernière version stable de MariaDB.  
 > Pour installer une version spécifique : https://mariadb.com/kb/en/library/installing-mariadb-deb-files/
 > 3) On vous demandera de confirmer l'installation en appuyant sur Enter
-> 4) Pour sécuriser l'installation exécutez la commande `sudo mysql_secure_installation`\
- Plusieurs propositions d'amélioration de la sécurité vous seront proposées avec un texte décrivant les risques.\
+> 4) Pour sécuriser l'installation exécutez la commande `sudo mysql_secure_installation`  
+ Plusieurs propositions d'amélioration de la sécurité vous seront proposées avec un texte décrivant les risques.  
  Acceptez toutes les propositions. Lorsqu'il vous est proposé de changer le mot de passe du compte root, dites oui
  et remplacez le par `cefim`
 
-**Important** :\
-Les users créés sous MySQL/MariaDB sont distincts des users du système d'exploitation.\
-Ainsi le compte root Debian est sans rapport avec le compte root de MySQL/MariaDB.\
+**Important** :  
+Les users créés sous MySQL/MariaDB sont distincts des users du système d'exploitation.  
+Ainsi le compte root Debian est sans rapport avec le compte root de MySQL/MariaDB.  
 Pour des raisons de sécurité, le compte root Debian ne doit pas être utilisé (sauf administration de la VM),
-on préfère attribuer les droits sudo à un autre user (ici cefim) qui exécutera les commandes précédées de sudo.\
+on préfère attribuer les droits sudo à un autre user (ici cefim) qui exécutera les commandes précédées de sudo.  
 De la même façon en SQL, on préfèrera créer un user par application/rôle avec le minimum de droits nécessaires 
 et garder le compte root pour les opérations d'administration : aucune application ne devrait accéder à une base SQL
 avec un user root ! 
 
 ## Gérer le service MySQL
-Comme tout service sous Linux, on peut accéder au statut de MySQL et le démarrer/arrêter via la commande `systemctl`\
-Remarque : le nom de la commande varie selon la distribution Linux.\
+Comme tout service sous Linux, on peut accéder au statut de MySQL et le démarrer/arrêter via la commande `systemctl`  
+Remarque : le nom de la commande varie selon la distribution Linux.  
 Remarque : sur certaines distribution le service est nommé mysql même s'il s'agit de MariaDB 😯
 
 Statut : `sudo systemctl status mysql` : doit afficher 
@@ -150,15 +150,15 @@ Opérations :
 
 ## Connexion au shell SQL
 Pour se connecter au CLI (Command Line Interface) de MySQL on utilise la commande `mysql` (là encore pas de différence MariaDB/MySQL)
-Par défaut le login utilisé pour le CLI est le même que le user Linux. Mais nous n'avons aucun user "cefim" créé dans MySQL.\
+Par défaut le login utilisé pour le CLI est le même que le user Linux. Mais nous n'avons aucun user "cefim" créé dans MySQL.  
 Ainsi la commande `mysql` renvoie `ERROR 1698 (28000): Access denied for user 'cefim'@'localhost'`
 
-Seul le user root existe actuellement dans MySQL.\
+Seul le user root existe actuellement dans MySQL.  
 Vous pouvez vous connectez via la commande `mysql -u root -p` et en renseignant ensuite le mot de passe
 
-> Sous MariaDB, le compte root est un peu particulier, pour l'utiliser il faut faire : `sudo mysql`\
-  Aucun mot de passe n'est demandé car MariaDB considère qu'un user ayant les droits sudo possède déjà tout pouvoir.\
+> Sous MariaDB, le compte root est un peu particulier, pour l'utiliser il faut faire : `sudo mysql`  
+  Aucun mot de passe n'est demandé car MariaDB considère qu'un user ayant les droits sudo possède déjà tout pouvoir.  
   Ce mode de connexion n'est valable que pour le compte root.  
 
-Une fois connecté, vous obtenez une console différente, préfixée par "mysql...".\
+Une fois connecté, vous obtenez une console différente, préfixée par "mysql...".  
 A tout moment pour quitter la console faites CTRL+C

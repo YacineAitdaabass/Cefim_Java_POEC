@@ -11,7 +11,7 @@ base de données on opère.
 Pour cela on utilise la commande `USE`
 Syntaxe : https://dev.mysql.com/doc/refman/8.0/en/use.html
 
-On peut aussi dès la connexion à mysql préciser la table sur laquelle on opère :\
+On peut aussi dès la connexion à mysql préciser la table sur laquelle on opère :  
 `mysql -p nom_de_la_base` (en plus des paramètres habituel tel que -u, etc)
 
 Une fois la base de données sélectionnée, on remarque que le shell
