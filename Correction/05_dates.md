@@ -140,6 +140,13 @@ FROM horloge;
  FROM horloge;
  ```
 
+Pas plus simple avec ADDDATE, mais sinon avec ADDTIME :
+```
+SELECT *,
+     ADDTIME(test_datetime, '1 4 13 2:0:0') AS somme
+FROM horloge;
+```
+
 > Note : Il est également possible d'utiliser SUBDATE pour effectuer des soustractions
 
 ### Ajout de temps (ADDTIME : ajout de durée à un TIME/DATETIME/TIMESTAMP)
@@ -222,7 +229,6 @@ Ainsi il n'est pas possible de faire la chose suivante :
 ```
 
 A la place il faut réécrire la définition de ces variables à chaque fois, ce qui est très peu pratique.
-Nous verrons plus tard une alternative à cela.
 
 ```
    SELECT *,
@@ -237,4 +243,23 @@ Nous verrons plus tard une alternative à cela.
         TIMESTAMPDIFF(SECOND, test_datetime, NOW()) % 60, ' secondes'
        ) 
    FROM horloge;
+```
+
+Ou bien plus pratique, exécuter une subquery :
+
+```
+   SELECT *,
+       CONCAT(
+        diff_jours, ' jours ',
+        diff_heures, ' heures ',
+        diff_minutes, ' minutes ',
+        diff_secondes, ' secondes'
+       ) FROM (
+           SELECT 
+               TIMESTAMPDIFF(DAY, test_datetime, NOW()) AS diff_jours,
+               TIMESTAMPDIFF(HOUR, test_datetime, NOW()) % 24 AS diff_heures,
+               TIMESTAMPDIFF(MINUTE, test_datetime, NOW()) % 60 AS diff_minutes,
+               TIMESTAMPDIFF(SECOND, test_datetime, NOW()) % 60 AS diff_secondes
+           FROM horloge
+       ) AS temp;
 ```
