@@ -1,7 +1,7 @@
 # Manipulation des dates et heures
 
 ## Les types de date et heure
-Types : https://dev.mysql.com/doc/refman/8.0/en/date-and-time-types.html\
+Types : https://dev.mysql.com/doc/refman/8.0/en/date-and-time-types.html  
 DATE, DATETIME, TIMESTAMP : https://dev.mysql.com/doc/refman/8.0/en/datetime.html
 
 5 types de variable sont proposés :
@@ -13,7 +13,7 @@ DATE, DATETIME, TIMESTAMP : https://dev.mysql.com/doc/refman/8.0/en/datetime.htm
 
 Les types TIME, DATETIME et TIMESTAMP peuvent inclure des fractions de seconde sous la forme `2019-12-31 23:59:59.999999`
 
-Attention à renseigner leurs valeurs dans le format standard pour éviter les mauvaises surprises.\
+Attention à renseigner leurs valeurs dans le format standard pour éviter les mauvaises surprises.  
 Exemples :
 - DATE `69-01-01` équivaut à `1969-01-01`
 - DATE `70-01-01` équivaut à `2070-01-01`
@@ -25,16 +25,16 @@ Il est possible de stocker un mois et/ou un jour de mois valant zéro dans une d
 Exemple :
 - DATE `2019-00-01` = ???
 - DATE `2019-01-00` = mois de janvier 2019
-- DATE `2019-00-00` = année 2019\
+- DATE `2019-00-00` = année 2019  
 Les opérations de calcul sur ces dates seront par contre non fiables
 
 Ces valeurs "zéro" sont propices à la confusion : en cas d'insertion de date erronée (ex : mois=24),
 MySQL insérait une valeur "zéro" à la place. Ainsi on pouvait ne pas voir des erreurs d'insertion,
 et en cas d'usage de valeur "zéro", on ne pouvait plus savoir s'il s'agissait d'une erreur ou d'une
-véritable valeur "zéro".\
+véritable valeur "zéro".  
 Depuis MySQL 5.6 ce comportement a été résolu en interdisant les valeurs "zéro" pour les types
 de date et heure (strict_mode=on). Ainsi une valeur erronée (ex : mois=24) donne bien lieu à une erreur
-désormais. De la même façon, les mois et jour du mois valant 0 sont également interdits.\
+désormais. De la même façon, les mois et jour du mois valant 0 sont également interdits.  
 Si besoin il reste possible de désactiver le strict_mode pour revenir au comportemetn avant la 5.6.
 
 ## Les fuseaux horaires (timezones)
@@ -58,7 +58,7 @@ différences entre un TIMESTAMP et un DATETIME.
 > - test_time de type TIME
 > - test_datetime de type DATETIME
 > - test_timestamp de type TIMESTAMP
-> - test_year de type YEAR\
+> - test_year de type YEAR  
 > Et Insérez 3 lignes :
 > - Une 1e avec la date `2019-12-31 13:45:23` dans chaque colonne
 >(s'il s'agit d'un champ DATE n'insérez que la partie date, 
@@ -67,7 +67,7 @@ différences entre un TIMESTAMP et un DATETIME.
 > - Une 3e avec les valeurs NULL dans chaque colonne 
 
 ## Les fonctions de date et heure
-https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html\
+https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html  
 Unités d'intervalles temporels : https://dev.mysql.com/doc/refman/8.0/en/expressions.html#temporal-intervals
 
 ### Récupérer la date actuelle
@@ -89,7 +89,7 @@ Il existe également SYSDATE() qui renvoie un timestamp qui peut différer de NO
 - NOW() prend la valeur de l'instant du début d'exécution de la requête
 - SYSDATE() prend la valeur exacte où il est exécuté
 
-Exemple illustrant cette différence : (la fonction SLEEP(5) met en pause 5 secondes la requête)\
+Exemple illustrant cette différence : (la fonction SLEEP(5) met en pause 5 secondes la requête)  
 ```
 SELECT 
     NOW(), SYSDATE(), 

@@ -109,7 +109,7 @@ Syntaxe : voir SELECT : https://dev.mysql.com/doc/refman/8.0/en/select.html
 > - les lignes classées selon le prénom et le nom (en cas d'égalité du prénom, on classe par le nom)
 
 ## Pagination avec LIMIT
-https://dev.mysql.com/doc/refman/8.0/en/select.html\
+https://dev.mysql.com/doc/refman/8.0/en/select.html  
 https://dev.mysql.com/doc/refman/8.0/en/limit-optimization.html
  
 Pour un affichage paginé, il peut être utile d'afficher les résultats par paquets de N lignes.
