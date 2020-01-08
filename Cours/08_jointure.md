@@ -195,7 +195,7 @@ INSERT INTO `panier` (`id_client`, `id_article`, `quantite`) VALUES ('1', '1', '
 ```
 > Puis rédigez le requêtes suivantes en organisant l'ordre de vos jointures
 >afin de générer la requête la plus efficiente possible pour MySQL :
->- afficher les id des articles achetés la cliente Wonderwoman
+>- afficher les id des articles achetés oar la cliente Wonderwoman
 >- afficher les articles (leur libellé) du client dont l'id vaut 10  
 >**[Pour les items suivants vous n'avez plus le droit de filtrer par id dans les clauses WHERE]**
 >- afficher les articles (leur libellé) achetés par le client Batman
