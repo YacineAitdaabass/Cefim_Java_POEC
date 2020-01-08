@@ -74,11 +74,6 @@ A la moindre erreur lors de la transaction, toutes les requêtes passées seront
 c'est ce qu'on appelle un ROLLBACK. Vous pouvez vous même déclencher un ROLLBACK
 au milieu d'une transaction via `ROLLBACK;`
 
-Cependant rien n'empêche d'autres transactions d'intervenir en même temps et sur les mêmes tables.
-L'ordre d'exécution sera celui de l'ordre des COMMIT.
-Ainsi, si votre transaction n'est plus possible (contrainte UNIQUE, etc), elle subira un ROLLBACK.
-
-
 Attention, certaines opérations au sein d'une transaction donnent systématiquement lieu 
 à un COMMIT (notamment toutes celles qui touchent au DDL) :
 https://dev.mysql.com/doc/refman/8.0/en/implicit-commit.html
