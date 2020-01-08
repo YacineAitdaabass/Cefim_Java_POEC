@@ -187,7 +187,7 @@ De plus elle est moins intuitive à la lecture (JOIN implicite).
 CREATE TABLE `client` ( `id` INT NOT NULL ,  `nom` VARCHAR(50) NOT NULL ) ENGINE = InnoDB;
 INSERT INTO `client` (`id`, `nom`) VALUES ('1', 'Batman'), ('2', 'Captain Igloo'), ('3', 'Spiderman'), ('4', 'Mr Propre'), ('5', 'Catwoman'), ('6', 'Superman'), ('7', 'Wonderwoman'), ('8', 'Mr Robot'), ('9', 'Eliot Alderson'), ('10', 'James Holden');
 
-CREATE TABLE `bidule`.`client` ( `id` INT NOT NULL ,  `nom` VARCHAR(50) NOT NULL ) ENGINE = InnoDB;
+CREATE TABLE `article` ( `id` INT NOT NULL ,  `libelle` VARCHAR(50) NOT NULL ) ENGINE = InnoDB;
 INSERT INTO `article` (`id`, `libelle`) VALUES ('1', 'Liquide vaisselle'), ('2', 'Gauffres'), ('3', 'Kit de réparation voiture'), ('4', 'Tractopelle'), ('5', 'Bouée'), ('6', 'Hélicoptère'), ('7', 'Vaisseau spatial'), ('8', 'Chocolat'), ('9', 'Place de concert'), ('10', 'Ketchup');
 
 CREATE TABLE `panier` ( `id_client` INT NOT NULL , `id_article` INT NOT NULL , `quantite` INT NOT NULL ) ENGINE = InnoDB;
