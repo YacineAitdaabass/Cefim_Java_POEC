@@ -204,3 +204,9 @@ INSERT INTO `panier` (`id_client`, `id_article`, `quantite`) VALUES ('1', '1', '
 >- afficher les clients qui ont acheté un même article en au moins 10 exemplaires
 >- pour chaque achat d'un article à au moins 10 exemplaires, affichez une ligne avec :
 >nom du client, libellé de l'article, quantité achetée
+
+
+
+
+
+reformuler question avant derniere !!

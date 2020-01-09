@@ -238,7 +238,7 @@ par une clé primaire = côté One
 > - Supprimez cette contrainte de clé
 > - Recréez une contrainte mais cette fois-ci la suppression d'un étudiant doit également supprimer
 >ses examens 
-> - Testez la suppression d'un étudiant : cela ne doit également supprimer ses examens
+> - Testez la suppression d'un étudiant : cela doit également supprimer ses examens
 
 #### ON UPDATE
 
