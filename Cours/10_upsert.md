@@ -62,7 +62,7 @@ https://dev.mysql.com/doc/refman/8.0/en/replace.html
 
 En cas de ligne non présente, REPLACE fonctionne comme un INSERT.
 Si la ligne existe déjà, celle-ci est supprimée puis recréée avec les nouvelles valeurs 
-(DELETE suivi d'un UPDATE, mais de façon atomique)
+(DELETE suivi d'un INSERT, mais de façon atomique)
 
 > Exercice : insérez via un REPLACE les 2 lignes suivante (nom, prenom, examen, score) :
 >   - score de 7/10 pour James Holden sur Python (avec date actuelle)
