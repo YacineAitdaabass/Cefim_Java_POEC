@@ -71,7 +71,7 @@ Si la ligne existe déjà, celle-ci est supprimée puis recréée avec les nouve
 > Observez et commentez le résultat
 
 ## INSERT avec ON DUPLICATE KEY UPDATE
-https://dev.mysql.com/doc/refman/5.5/en/insert-on-duplicate.html
+https://dev.mysql.com/doc/refman/8.0/en/insert-on-duplicate.html
 
 Contrairement à REPLACE, en cas d'existance de la ligne, cette commande effectue un UPDATE.
 Cete différence est cruciale pour les champs auto-incrémentés :
