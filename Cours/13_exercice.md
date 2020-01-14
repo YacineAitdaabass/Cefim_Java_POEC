@@ -55,11 +55,11 @@ genre t'en achète un à ton nom mais tu peux faire passer 2 potes avec toi ?
 > Requêtes à rédiger :
 > - pour les 50 achats de billets les plus récents, afficher le mail des clients les ayant acheté
 >et la date d'achat
->- afficher le nombre d'événements pour chaque organisation en une seule requête 
+>- afficher le nombre d'événements pour chaque organisation **("compte organisateur" pour les puristes)** en une seule requête 
 >- classez les organisateurs par nombre de billets vendus décroissant
->- pour chaque événement, afficher 3 colonnes : le nombre de billets encore disponibles à la vente, le nombre de billets
+>- pour chaque événement, afficher **4** colonnes : le nombre de billets encore disponibles à la vente, le nombre de billets
 >en panier, le nombre de billets achetés et le nombre total de billets  
->- affichez les organisateurs ayant entre 1000 et 2000 tickets encore en panier. Faites-le sans utiliser de subqueries
+>- affichez les organisateurs ayant entre 1000 et 2000 tickets encore en panier. Faites-le sans utiliser de subqueries **ni de CTE**
 >- qu'est ce que cela implique pour l'application ?
 >- rédigez une requête (sans l'exécuter !) qui puisse corriger ce problème
 >- pour chaque organisateur, affichez les 3 clients (mail) ayant dépensé le plus d'argent pour leurs événements respectifs
@@ -68,3 +68,4 @@ genre t'en achète un à ton nom mais tu peux faire passer 2 potes avec toi ?
 >La table billet approche les 100 millions de lignes, c'est elle qui pose le plus de problèmes. 
 >On note que les requêtes impliquant cette table ne concerne généralement qu'un seul organisateur à la fois.
 >Que proposez vous pour améliorer la latence des requêtes sur cette table ? Quelles en seront les conséquences ?
+>- **Afficher les recettes cumulées depuis le 09/12/2019 pour l'organisateur dont l'id vaut 1 (une ligne par billet acheté pour un des événements de l'organisateur)**
