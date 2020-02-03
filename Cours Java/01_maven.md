@@ -70,7 +70,7 @@ Pour résoudre le problème il est possible de packager le tout en un fichier ja
                 </descriptorRefs>
                 <archive>
                     <manifest>
-                        <mainClass>com.company.app.MaClasse.Main</mainClass>
+                        <mainClass>com.company.app.MaClasse</mainClass>
                     </manifest>
                 </archive>
             </configuration>
@@ -89,4 +89,4 @@ Pour résoudre le problème il est possible de packager le tout en un fichier ja
 
 > Exécutez ensuite le goal package et observez le répertoire target.
 > Vous pouvez maintenant exéutez votre programme à l'aide de la ligen de commande : 
->`java -jar target/ArtifactId-1.0-SNAPSHOT-jar-with-dependencies`
+>`java -jar target/ArtifactId-1.0-SNAPSHOT-jar-with-dependencies.jar`
