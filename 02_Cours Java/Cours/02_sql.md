@@ -27,8 +27,8 @@ connection.close();
 Chaque requête SQL va être soumise à une instance de la classe Statement.
 ```
 String query = "INSERT INTO ...";
-Statement query = connection.createStatement();
-stmt.executeQuery(requete);
+Statement stmt = connection.createStatement();
+stmt.executeQuery(query);
 ```
 
 Si la requête renvoie une information (SELECT)
@@ -46,7 +46,7 @@ au premier résultat.
 Un while est donc idéal :
 
 ```
-while(rs.nest()){
+while(rs.next()){
     // code ici
 }
 ```
@@ -204,7 +204,7 @@ handle du handler soumis en paramètre. C'est donc cette méthode qu'il faut sur
         BeanListHandler<Billet> handler = new BeanListHandler<>(Billet.class);
         String query = "SELECT * FROM billet WHERE achat_client_id = ?";
  
-        for (Client client : client) {
+        for (Client client : clients) {
             List<Billet> billetsAchetes = runner.query(connection, query, handler, client.getId());
             client.setBilletsAchetes(billetsAchetes);
         }
@@ -213,6 +213,32 @@ handle du handler soumis en paramètre. C'est donc cette méthode qu'il faut sur
 ```
 
 > Testez le code ci-dessus en accédant en affichant le code des billets du client dont l'id vaut 2.  
+
+### Row processor
+Parfois, le nom des champs côté BDD ne peut pas être reflété par le nom des champs
+côté Java (camelCase vs snake_case, ou tout simplement pour des facilités de lecture, clarté, etc).
+
+Dans ce cas il est possible de mapper un nom de colonne SQL vers un nom de champ Java.
+Cela se fait au sein d'un handler. Il faut :
+1) Lui ajouter une méthode permettant de mapper les champs :
+    ```
+   public static Map<String, String> mapColumnsToFields(){
+   
+           Map<String, String> columnsToFieldsMap = new HashMap<>();
+           columnsToFieldsMap.put("champ_machin_truc", "champMachinTruc"); //SQL -> Java
+   
+           return columnsToFieldsMap;
+   
+       }
+   ```
+2) Préciser qu'il faudra utiliser cette méthode de mapping au sein de son constructeur
+    ```
+   public EvenementHandler(Connection con) {
+       super(Evenement.class, new BasicRowProcessor(new BeanProcessor(mapColumnsToFields())));
+       connection = con;
+   }
+   ```
+
 
 > En vous basant sur l'exemple précédent,
 >- créez les POJO pour les tables organisateur et evenement
