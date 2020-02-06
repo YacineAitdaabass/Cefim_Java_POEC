@@ -1,4 +1,4 @@
-#Démonstration du pattern MVC pour une application Swing avec gestion de BDD
+# Démonstration du pattern MVC pour une application Swing avec gestion de BDD
 Le code source est présent dans le répertoire java.
 N'oubliez pas de modifier les instructions `package` des différentes classes
 pour s'accorder à celles de votre projet.
