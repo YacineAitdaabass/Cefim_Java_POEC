@@ -9,7 +9,7 @@ public class ClientDAO {
 
     public static List<Client> findAll() throws SQLException {
 
-        BeanListHandler<Client> handler = new BeanListHandler(Client.class);
+        BeanListHandler<Client> handler = new BeanListHandler<>(Client.class);
         QueryRunner runner = new QueryRunner();
         String query = "SELECT * FROM client";
         return runner.query(SqlService.getConnection(), query, handler);
